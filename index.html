@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bulles de savants</title>
+  <link rel="shortcut icon" type="image/png" href="images/ico_full.png"/>
+  <link rel="stylesheet" href="stylesheet/prism.css">
+  <link rel="stylesheet" href="stylesheet/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(images/soap_background.jpg);">
+    <div id="class-languages">
+      <i class="fab fa-html5 mr-1" style="color: #f84820"></i>
+      <i class="fab fa-css3-alt mr-1" style="color: #1970b5"></i>
+      <i class="fab fa-js-square mr-1" style="color: #FFE01B"></i>
+    </div>
+    <div class="container">
+      <div class="main">
+        <img src="images/logo.png" alt="">
+        <div class="class-title">
+          <h1>Bulles de savants...</h1>
+          <h4>intro à P5.js</h4>
+        </div>
+      </div>
+      <p>Petit défi pour découvrir les fonctions, créer un GIF et se rappeler que le savon, ça peut aussi servir à faire des bulles!</p>
+      <a class="btn btn-primary tl-button" href="#challenge" role="button">Commencer !</a>
+    </div>
+  </div>
+  <p id=english-link>🗨️ For the english version click<a href="english_index.html"> here</a>!</p>
+
+  <div class="container" id="challenge">
+    <div class="gamification">
+      <div class="progress">
+        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+      </div>
+    </div>
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link done task" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Etape 1 - Défis à compléter avant celui-ci
+            </button>
+          </h2>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Avant de t'attaquer à ce défi, on te conseille de compléter les défis suivants:</p>
+            <ol>
+              <li><a href="https://techieslab.github.io/year-prediction_instructions/" target="_blank">En 2020 je serai...</a></li>
+              <li><a href="https://techieslab.github.io/rainbow_instructions/" target="_blank">Ça va bien aller</a></li>
+              <li><a href="https://techieslab.github.io/balloon_instructions/" target="_blank">Péter ta balloune</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link task" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Etape 2 - Connexion à P5.js
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>Première chose avant de commencer à travailler sur n'importe quel projet p5.js: <strong>connecte-toi <a href="https://editor.p5js.org/" target="_blank">à ton compte</a></strong> en cliquant sur "Log in".</p>
+            <img src="images/log_in.png" class="img-shadow mb-3" alt="">
+
+            <p>Renomme ton projet en cliquant sur le petit crayon <i class="fas fa-pencil-alt"></i>.</p>
+
+            <div class="alert alert-warning" role="alert">
+              <p>
+                <i class="fas fa-exclamation-circle"></i>
+                Ça semble bête à dire... mais n'oublie pas de te connecter à ton compte avant de commencer à travailler! Cela te permettra de sauvegarder gratuitement ton travail (tes <em>sketchs</em>) sur les serveurs de p5.js. Si tu ne le fais pas, tu dois alors télécharger les fichers localement (sur ton ordinateur) et s'il arrive quoique ce soit, tu risques de perdre tout ton travail 😢
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Etape 3 - Mise en bouche: les fonctions
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>En <a href="https://editor.p5js.org/Margotte/present/HL-jlYbaWW" target="_blank">cliquant par ici</a>, tu trouveras un aperçu de ce qu'on va coder. À vrai dire, tu viens de voir la solution du défi! Est-ce que c'est tricher? Pas du tout! Lire le code de <strong data-toggle="tooltip" title="développeuses et développeurs">devs</strong> plus avancés fait partie de l'apprentissage!</p>
+
+            <p>Ce code contient de nombreuses <strong>fonctions</strong>. Les fonctions servent à donner des instructions à l'ordinateur et sont très utiles pour ne pas avoir à répéter toujours les mêmes instructions. Tu utilises déjà plein de fonctions dans tes programmes. <code class="language-js">color()</code>, par exemple, est une fonction qui permet de créer une couleur grâce à la librairie p5.js. <code class="language-js">ellipse()</code> est une fonction qui dessine une ellipse (ou un cercle). Te souviens-tu de la fonction pour dessiner une ligne?</p>
+
+            <p>Eh oui, c'est <code class="language-js">line()</code>.</p>
+
+            <p>Tu as peut-être noté que lorsqu'on parle de fonctions, on ajoute des parenthèses <strong>( )</strong> après le nom de la fonction. C'est que les fonctions peuvent prendre des <strong>paramètres</strong>, que l'on va mettre entre les parenthèses. Voici un exemple:</p>
+
+            <pre>
+              <code class="language-js">
+                textSize(50);
+              </code>
+            </pre>
+
+            <p>Entre les parenthèses, j'ai ajouté le nombre <code class="language-js">50</code>. Ce nombre représente la taille de mon texte. Si j'avais codé</p>
+
+            <pre>
+              <code class="language-js">
+                textSize(100);
+              </code>
+            </pre>
+
+            <p>mon texte serait deux fois plus grand! Les paramètres sont importants car ils peuvent faire une grosse différence sur le résultat de ma fonction.</p>
+
+            <p>Certaines fonctions prennent plusieurs paramètres:</p>
+            <pre>
+              <code class="language-js">
+                ellipse(150, 130, 100);
+              </code>
+            </pre>
+
+            <p>Ici, il y avait trois paramètres <code class="language-js">150</code>, <code class="language-js">130</code> et <code class="language-js">100</code>. Finalement, certaines fonctions ne prennent aucun paramètre:</p>
+
+            <pre>
+              <code class="language-js">
+                noStroke();
+              </code>
+            </pre>
+
+            <p>La fonction <code class="language-js">noStroke()</code> ne prend pas de paramètres, mais on garde quand même les parenthèses pour indiquer que si la fonction prenait des paramètres, c'est là où ils iraient. Et puis, pour nous devs, c'est un bon indice pour savoir que c'est une fonction (et non pas une variable, par exemple).</p>
+
+            <p>La plupart du temps, on utilise des fonctions qui existent déjà dans la librairie p5.js. <code class="language-js">color()</code>, <code class="language-js">noStroke()</code>, <code class="language-js">ellipse()</code>, etc. sont toutes des fonctions qui existent déjà!</p>
+
+            <p>Tu peux toujours vérifier si une fonction existe dans la librairie p5.js en allant chercher dans la <a href="https://p5js.org/reference/" target="_blank">documentation</a> (la documentation, c'est comme une dictionnaire qui recense toutes les fonctions de la libriarie).</p>
+
+            <img class="img-shadow mb-3" src="images/p5-ref.png" alt="">
+
+            <p>Dans la documentation, tu peux cliquer sur chaque fonction individuellement pour obtenir une description et des exemples (en anglais).</p>
+            <img class="img-shadow mb-3" src="images/p5-fctn.png" alt="">
+
+            <p>À partir de maintenant, tu devrais toujours avoir un onglet ouvert dans ton navigateur avec la documentation de p5.js. C'est <strong>suuuuuuuuper</strong> utile!</p>
+
+            <p>Parfois, on veut coder nos propres fonctions car elles n'existent pas dans la librairie p5.js ou en JavaScript. Dans ce cas-là, on doit d'abord <strong>définir</strong> notre fonction en utilisant le mot clé... attention... ça va être très surprenant... le mot clé <code class="language-js">function</code>!</p>
+
+            <pre>
+              <code class="language-js">
+                function drawBubble(positionX, color, letter) {
+                fill(color);
+                ellipse(positionX, 130, 100);
+
+                // lettre
+                textStyle(BOLD);
+                textSize(50);
+                fill(0,0,0);
+                text(letter, positionX-15, 145);
+              }
+            </code>
+          </pre>
+
+          <p>Ici, j'ai défini la fonction <code class="language-js">drawBubble()</code> avec trois paramètres (<code class="language-js">positionX</code>, <code class="language-js">color</code> et <code class="language-js">letter</code>. J'ai ensuite ouvert les accolades <strong>{ }</strong> et à l'intérieur j'ai mis les instructions de ma fonction. Note que j'ai utilisé d'autres fonctions à l'intérieur de ma fonction <code class="language-js">drawBubble()</code> 🤯</p>
+
+          <p>Après cette longue introduction, revenons à nos moutons 🐑 🐑 🐑 🐑! <a href="https://editor.p5js.org/Margotte/present/HL-jlYbaWW" target="_blank">Notre code</a> contient de nombreuses fonctions. Seize (16) pour être exact! Peux-tu les trouver toutes? Insère-les dans le formulaire suivant et clique sur <strong>Corriger</strong>. </p>
+
+          <div class="alert alert-warning" role="alert">
+            <p>N'ajoute pas les paramètres des fonctions, mais n'oublie pas de mettre les deux parenthèses. Exemple: <code class="language-js">ellipse()</code></p> <p>Et n'hésite pas à te référer à la <a href="https://p5js.org/reference/" target="_blank">documentation</a> pour vérifier...</p>
+          </div>
+
+          <form id="fonction-quiz">
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit" id="fonction-quiz-submit">Corriger!</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingFour">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Etape 4 - Une image comme arrière-plan 🖼️
+          </button>
+        </h2>
+      </div>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+        <div class="card-body">
+          <p>Pour donner un peu de peps à notre animation, on va insérer une image en arrière-plan. Voici les étapes:</p>
+
+          <ol>
+            <li>trouver une photo sur internet;</li>
+            <li>télécharger la photo sur ton ordinateur;</li>
+            <li>importer le fichier de ta photo dans ton projet p5.js;</li>
+            <li>insérer la photo dans ton code.</li>
+          </ol>
+
+          <div class="alert alert-warning" role="alert">
+            <p><i class="far fa-lightbulb"></i>  Ces étapes sont très semblables à celles que tu as suivies pour changer la police dans ton projet <a href="https://techieslab.github.io/year-prediction_instructions/">prédictions</a></p>
+          </div>
+
+          <p>Pour trouver une belle image (gratuite!) tu peux aller sur le site <a href="https://unsplash.com/">Unsplash</a> et taper <em>soap bubbles</em> (bulle de savon en anglais).</p>
+
+          <img class="img-shadow mb-3" src="images/unsplash.png" alt="">
+
+          <p>Tu peux bien entendu aussi trouver une image en allant dans un moteur de recherche de ton choix. Télécharge l'image sur le <strong>Bureau</strong> de ton ordinateur, par exemple.</p>
+
+          <p>Pour importer le fichier de ta photo dans ton projet p5.js, tu peux créer un dossier "<strong>assets</strong>":</p>
+          <img class="img-shadow mb-3" src="images/step12e.png" alt="">
+
+          <div class="alert alert-warning" role="alert">
+            <p><i class="far fa-lightbulb"></i>  <em>assets</em>, ça veut dire "éléments graphiques" en anglais. C'est le dossier dans lequel on peut mettre des images, des gifs, des polices, des sons, etc. Tu n'es pas <em>obligé</em> de créer un dossier assets, mais c'est une bonne idée de le faire, car un jour, ton projet pourrait avoir beaucoup plus d'images, et tu ne voudrais pas qu'elles soit éparpillées à plusieurs endroits différents.</p>
+          </div>
+
+          <p>Dans le dossier <em>assets</em>, charge ton image.</p>
+          <img class="img-shadow m-3" src="images/step12f.png" alt="">
+          <img class="img-shadow m-3" src="images/assets.png" alt="">
+
+          <p>Dernière étape: le JavaScript! Dans ton code, rajoute les lignes suivantes:</p>
+
+          <pre>
+            <code class="language-js">
+              let img;
+
+              function preload() {
+              img = loadImage('assets/XXXX');
+            }
+
+            function setup() {
+            createCanvas(400, 400);
+            image(img, 0, 0);
+          }
+        </code>
+      </pre>
+
+      <div class="alert alert-warning" role="alert">
+        <p><i class="fa fa-exclamation-circle"></i>  Remplace les XXXX par le nom du fichier de ton image. Respecte la casse (les majuscules et les minuscules!)</p>
+      </div>
+
+      <p>Si l'image est trop grande, tu peux changer sa taille avec la fonction <code class="language-js">resize()</code>:</p>
+      <pre>
+        <code class="language-js">
+          function setup() {
+          createCanvas(400, 400);
+          img.resize(400, 0);
+          image(img, 0, 0);
+        }
+      </code>
+    </pre>
+
+    <p>Rappelle-toi que tu peux également changer la taille du canevas grâce à la fonction <code class="language-js">createCanvas()</code>.</p>
+
+  </div>
+</div>
+</div>
+<div class="card">
+  <div class="card-header" id="headingFive">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        Etape 5 - Première bulle!
+      </button>
+    </h2>
+  </div>
+  <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+    <div class="card-body">
+
+      <p>Crée ta première bulle dans la fonction <code class="language-js">draw()</code>! Quelle fonction peux-tu utiliser dessiner un cercle?</p>
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer5a" role="button" aria-expanded="false" aria-controls="collapseAnswer5a"> Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer5a">
+        <div class="card card-body">
+          <p>Tu peux soit utiliser la fonction <code class="language-js">circle()</code> ou la fonction <code class="language-js">ellipse()</code>.</p>
+        </div>
+      </div>
+
+      <p>Fais en sorte qu'on ne voit pas les contours de la bulle.</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint5a" role="button" aria-expanded="false" aria-controls="collapseHint5a">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint5a">
+        <div class="card card-body">
+          <p>Tu peux utilser la fonction <code class="language-js">noStroke()</code></p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header" id="headingSix">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        Etape 6 - Couleur transparente!🟥 🟦 🟧 🟩 🟨 🟪 🟫
+      </button>
+    </h2>
+  </div>
+  <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+    <div class="card-body">
+      <p>Tu peux utiliser la fonction <code class="language-js">fill()</code> pour donner une couleur à ta bulle. Pour donner un aspect plus "véridique" à ta bulle, essaye de lui donner une couleur légèrement transparente.</p>
+
+      <img class="img-shadow m-3" src="images/transparent-color.png" alt="">
+      <p>Pour une couleur transparente, il faut d'abord trouver le code de la couleur en RGB (<span style="color: red"><strong>RED</strong></span>, <span style="color: green"><strong>GREEN</strong></span>, <span style="color: blue"><strong>BLUE</strong></span>:</p>
+
+      <pre>
+        <code class="language-js">
+          <!-- code RGB pour le vert -->
+          rgb(0, 255, 0)
+        </code>
+      </pre>
+
+      <p>Pour ajouter de la transparence, on utilise le code RGBA, avec un quatrième nombre en 0 et 1:</p>
+
+      <pre>
+        <code class="language-js">
+          <!-- code RGBA pour le vert légèrement transparent -->
+          rgba(0, 255, 0, 0.6)
+        </code>
+      </pre>
+
+      <p>Combiné avec la fonction <code class="language-js">color()</code> de p5.js, on obtient une couleur qu'on stocke dans la <strong>variable</strong> <code class="language-js">bubbleColor</code> et qu'on utilise ensuite dans la fonction <code class="language-js">fill()</code>:</p>
+
+      <pre>
+        <code class="language-js">
+          <!-- code RGBA pour le vert légèrement transparent -->
+          let bubbleColor = color('rgba(0, 255, 0, 0.6)');
+          fill(bubbleColor);
+        </code>
+      </pre>
+
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header" id="headingSeven">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+        Etape 7 - La bulle flotte
+      </button>
+    </h2>
+  </div>
+  <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+    <div class="card-body">
+
+      <p>En t'inspirant de l'étape 8 du défi <a href="https://techieslab.github.io/balloon_instructions/">Péter ta balloune</a>, peux-tu faire bouger la bulle vers la gauche ou vers la droite?</p>
+
+      <p>Tu auras besoin d'une variable pour stocker la position sur l'axe des x de ta bulle. Tu devras également changer la valeur de la position en x à chaque fois que la fonction <code class="language-js">draw()</code> est appelée (c'est à dire au moins 30 fois par secondes).</p>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header" id="headingEight">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+        Etape 8 - Notre ballon s'envole 💨🎈
+      </button>
+    </h2>
+  </div>
+  <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+    <div class="card-body">
+
+      <p>Au lieu de faire apparaître notre ballon à différents endroits de notre canevas, on va le faire bouger du <strong>bas</strong> du canevas vers le <strong>haut</strong>. Pour cela il faut que la position du ballon sur l'axe des Y change! À chaque fois que la fonction <code class="language-js">draw()</code> est appelée, la position en Y doit avoir... diminué ou augmenté?🤔</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint2" role="button" aria-expanded="false" aria-controls="collapseHint2">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint2">
+        <div class="card card-body">
+          <p>Diminué... vu que l'origine de ton canvas et en haut à gauche. La position en Y va commencer à 200, puis 199, 198...</p>
+        </div>
+      </div>
+
+
+      <p>À l'étape 4, on avait stocké la vaeur de la position en X dans une <strong>variable</strong> <code class="language-js">positionX</code>. Cette fois-ci, on va stocker la valeur de la position en Y dans une variable réutilisable:</p>
+
+      <pre><code class="language-js">
+        fonction draw() {
+        // plein de beau code...
+
+        let positionY = 200;
+        ellipse(200, positionY, 65, 80);
+
+        // plein de beau code...
+      }
+    </code></pre>
+
+    <p>Maintenant, diminuons la valeur de cette variable. Pour augmenter la valeur d'une variable de 1, on peut écrire ceci: <code class="language-js">positionY++</code> ou ceci: <code class="language-js">positionY += 1</code>. À ton avis, comment faire pour diminuer la valeur?</p>
+
+    <p>Lance ton code pour tester... Notre ballon reste en place 😢. Même problème que pour les couleurs aléatoires de l'étape précédente! On ne peut pas déclarer ta variable <code class="language-js">positionY</code> dans la fonction <code class="language-js">draw()</code>, car cette dernière est appellée plusieurs fois par seconde. Et donc plusieurs fois par seconde, on replace le ballon à sa position verticale initiale (200).</p>
+    <p>Pour contourner ce problème, on doit déclarer notre variable <code class="language-js">positionY</code> <em>avant</em> la fonction <code class="language-js">setup()</code>:</p>
+
+    <pre><code class="language-js">
+      let colors = ["yellow", "peachpuff", "seagreen"];
+      let balloonColor;
+      let positionY = 200;
+
+      fonction setup() {
+      // plein de beau code...
+    }
+
+    fonction draw() {
+    // plein de beau code...
+
+    ellipse(200, positionY, 65, 80);
+
+    // plein de beau code...
+
+    positionY--
+  }
+</code></pre>
+
+<p>Tu as sans doute noté qu'il va falloir également modifier le code de la tige du ballon pour qu'elle suive... C'est là où utiliser des variables s'avère très utile!C'est là où utiliser des variables s'avère très utile! Il se peut aussi que ton ballon s'envole très très lentement...</p>
+
+<img src="images/slow_rise.gif" alt="" class="img-shadow mb-3">
+
+<p>C'est que tu as un <code class="language-js">frameRate()</code> très bas. À vrai dire, tu peux maintenant enlever complètement cette instruction de ta fonction <code class="language-js">setup()</code>.</p>
+</div>
+</div>
+</div><!--  end card -->
+
+<div class="card">
+  <div class="card-header" id="headingNine">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+        Etape 9 - Déclencher une action quand on clique 🖱️
+      </button>
+    </h2>
+  </div>
+  <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+    <div class="card-body">
+      <p>Maintenant que notre ballon s'envole, essayons de voir comment le... péter 💪 La première chose à apprendre, c'est comment faire pour que l'ordinateur réagisse quand on clique sur le canevas. La librairie p5.js est très utile pour ça, car elle a plein de fonctions qui servent à détecter les actions de l'utilisateur sur son écran.</p>
+
+      <p>La fonction qu'on va utiliser s'appelle <a href="https://p5js.org/reference/#/p5.Element/mouseClicked"><code class="language-js">mouseClicked</code></a> (<em>souris cliquée</em>).</p>
+
+      <p>On va utiliser la fonction <code class="language-js">mouseClicked</code> <strong>après</strong> les fonctions <code class="language-js">setup()</code> et <code class="language-js">draw()</code>. La première instruction qu'on va mettre dans la fonction <code class="language-js">mouseClicked</code>, c'est une instruction pour afficher quelque chose dans la console (l'espace en-dessous de ton code).</p>
+
+      <img src="images/clicked.gif" alt="" class="img-shadow mb-3">
+
+      <p>Chaque fois que tu cliques sur le canevas, tu vois le mot "cliqué!" apparaître dans la console. Bien sûr, notre but n'est pas d'afficher un message dans notre console mais plutôt de faire "disparaître" notre ballon.</p>
+
+      <p>On ne va pas effacer le ballon. On va en donner l'illusion! En fait, on va repositionner le ballon en bas du canevas et on va changer sa couleur. Ni vu ni connu!</p>
+
+      <p>À ton avis, que faut-il coder dans la fonction <code class="language-js">mouseClicked()</code> pour changer la position et la couleur du ballon?</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9" role="button" aria-expanded="false" aria-controls="collapseHint9">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint9">
+        <div class="card card-body">
+          <pre>
+            <code class="language-js">
+              function mouseClicked() {
+              // pour choisir une nouvelle couleur
+              balloonColor = random(colors);
+
+              // pour replacer le ballon au bas du canevas
+              positionY = ???;
+            }
+          </code>
+        </pre>
+
+        <p>Remplace les <strong>???</strong> de mon code par la valeur en Y qui te permettra de positionner ton ballon en bas du canevas.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!--  end card -->
+
+<div class="card">
+  <div class="card-header" id="headingTen">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+        Etape 10 - Clique sur le ballon
+      </button>
+    </h2>
+  </div>
+  <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+    <div class="card-body">
+      <p>Dès qu'on clique <strong>n'importe où</strong> sur notre canevas, le ballon retourne au bas du canevas. Sympa... mais le ballon ne devrait faire cela que lorsqu'on clique sur celui-ci!</p>
+
+      <p>C'est le temps de mettre une condition à notre retour au bas du canevas. La syntaxe d'une condition en JavaScript est la suivante:</p>
+
+      <pre><code class="language-js">
+        if (CONDITION) {
+        // CODE À EXÉCUTER
+      }
+    </code></pre>
+
+    <p>On connaît déjà que notre code à exécuter. C'est celui qu'on avait avant!</p>
+
+    <pre><code class="language-js">
+      function mouseClicked() {
+      if (CONDITION) {
+      // pour choisir une nouvelle couleur
+      balloonColor = random(colors);
+
+      // pour replacer le ballon au bas du canevas
+      positionY = 400;
+    }
+  }
+</code></pre>
+
+<p>Et maintenant, la condition! Comment exprimer en code "quand l'utilisateur clique le ballon"? Rappelle-toi que dans une animation (comme dans beaucoup de jeux vidéo), tout est une question de coordonnées. Du coup, on va vérifier la <em>distance</em> de notre souris par rapport au centre de notre ballon. Et bien entendu, il existe une chouette fonction p5.js pour calculer la distance entre deux points: <a href="https://p5js.org/reference/#/p5/dist"><code class="language-js">dist()</code></a></p>
+
+<p>Observe les paramètres de la fonction. C'est un peu comme pour la fonction <code class="language-js">line()</code>, il y a 4 paramètres qui représentent les coordonnées des deux points dont on mesure la distance.</p>
+
+<img class="flexgif img-shadow mb-3" src="images/dist_function.png" alt="">
+
+<p>Notre premier point en <span style="color: rgb(30, 119, 200);"><strong>bleu</strong></span> est le centre du cercle (ou de l'ellipse) qui forme le ballon. Le second point en <span style="color: rgb(200, 29, 38);"><strong>rouge</strong></span> est l'endroit où le joueur a cliqué. Pour le point rouge, tu peux obtenir les coordonnées avec deux variables spéciales de p5.js appellées <code class="language-js">mouseX</code> et <code class="language-js">mouseY</code>.</p>
+
+<p>Pour obtenir la distance, tu peux donc coder ceci: <code class="language-js">let d = dist(x1, y1, mouseX, mouseY);</code>  À toi de remplacer <code class="language-js">x1</code> et <code class="language-js">x2</code> par les variables appropriées!</p>
+
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint10" role="button" aria-expanded="false" aria-controls="collapseHint10">Indice</a>
+</p>
+<div class="collapse mb-3" id="collapseHint10">
+  <div class="card card-body">
+    <p>Pour la position en Y, tu as déjà une variable <code class="language-js">positionY</code>. Pourrais-tu également avoir une variable en X? Regarde à l'étape 8 comment on a fait pour déclarer la variable <code class="language-js">positionY</code></p>
+  </div>
+</div>
+
+<p>Maintenant, utilises <code class="language-js">console.log(d)</code> pour voir la distance s'afficher à chaque fois que tu cliques:</p>
+
+<img class="flexgif img-shadow mb-3" src="images/dist_balloon.gif" alt="">
+
+<p>Combine maintenant la distance avec la condition:</p>
+
+<pre>
+  <code class="language-js">
+    function mouseClicked() {
+    let d = dist(positionX, positionY, mouseX, mouseY);
+    if (d ????) {
+    // pour choisir une nouvelle couleur
+    balloonColor = random(colors);
+
+    // pour replacer le ballon au bas du canevas
+    positionY = 400;
+  }
+}
+</code>
+</pre>
+<p>Remplace les ???? dans mon exemple et voilà, le tour est joué! Bravo!!!!</p>
+</div>
+</div>
+</div><!--  end card -->
+
+<div class="card">
+  <div class="card-header" id="headingEleven">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+        Etape 11 - Les points! 💯
+      </button>
+    </h2>
+  </div>
+  <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
+    <div class="card-body">
+      <p>Pour rendre notre jeu plus intéressant, rien de tel que des points! Chaque ballon éclaté rapportera des points au joueur. Comment pourrait-on coder cela? 🤔</p>
+
+      <p>Je vois trois étapes:</p>
+      <ol type="A">
+        <li>L'ordinateur doit se rappeler du nombre de points du joueur.</li>
+        <li>L'ordinateur doit afficher le nombre de points sur le canevas.</li>
+        <li>L'ordinateur doit augmenter le nombre de points dès que le joueur pète un ballon.</li>
+      </ol>
+
+      <h3>A. Stocker le nombre de points</h3>
+
+      <p>Commençons par la première étape. Qui dit "l'ordinateur se rappelle" ou "l'ordinateur stocke de l'information" dit bien entendu... <strong>variables</strong>!</p>
+
+      <p>Créons une variable, comme on l'a fait pour <code class="language-js">positionX</code>, <code class="language-js">positionY</code> ou encore <code class="language-js">colors</code>. À quel endroit de ton code dois-tu déclarer ta variable?</p>
+
+      <ol>
+        <li>Au tout début de ton programme, avant les fonctions <code class="language-js">setup()</code> et <code class="language-js">draw()</code>?</li>
+        <li>Dans la fonction <code class="language-js">setup()</code>?</li>
+        <li>Dans la fonction <code class="language-js">draw()</code>?</li>
+        <li>Dans la fonction <code class="language-js">mouseClicked()</code>?</li>
+      </ol>
+
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer11" role="button" aria-expanded="false" aria-controls="collapseAnswer11">Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer11">
+        <div class="card card-body">
+          <p>Réponse 2! Au tout début de ton programme, comme ceci:</p>
+          <pre>
+            <code class="language-js">
+              let colors = ["yellow", "peachpuff", "seagreen"];
+              let balloonColor;
+              let positionY = 200;
+              let positionX = 100;
+              let points = 0;
+            </code>
+          </pre>
+
+          <p>Si tu déclares ta variable <code class="language-js">points</code> dans la fonction <code class="language-js">setup()</code>, tu ne pourras pas y avoir accès dans la fonction <code class="language-js">draw()</code>.</p>
+          <p>Si tu déclares ta variable <code class="language-js">points</code> dans la fonction <code class="language-js">draw()</code>, tu n'arriveras jamais à faire augmenter le nombre de points, car la variable sera constamment ré-initialisée à 0.</p>
+          <p>Même chose si tu déclares ta variable dans la fonction <code class="language-js">mouseClicked()</code>: la variable sera ré-initialisée à 0 dès que tu cliqueras sur le ballon.</p>
+        </div>
+      </div>
+
+      <h3>B. Afficher les points</h3>
+
+      <p>Comment faire pour afficher du texte sur notre canevas? On l'a fait dans notre challenge <a href="https://techieslab.github.io/year-prediction_instructions/">prédictions</a>. Il y a une fonction très utile en p5.js... Te souviens-tu laquelle?</p>
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer11B" role="button" aria-expanded="false" aria-controls="collapseAnswer11B">Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer11B">
+        <div class="card card-body">
+          <p>C'est la fonction <code class="language-js">text()</code></p>
+        </div>
+      </div>
+
+      <p>Cette fois-ci, où devrait-on utiliser cette fonction?</p>
+
+      <ol>
+        <li>Au tout début de ton programme, avant les fonctions <code class="language-js">setup()</code> et <code class="language-js">draw()</code>?</li>
+        <li>Dans la fonction <code class="language-js">setup()</code>?</li>
+        <li>Dans la fonction <code class="language-js">draw()</code>?</li>
+        <li>Dans la fonction <code class="language-js">mouseClicked()</code>?</li>
+      </ol>
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer11C" role="button" aria-expanded="false" aria-controls="collapseAnswer11C">Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer11C">
+        <div class="card card-body">
+          <p>Dans la fonction <code class="language-js">draw()</code> car le nombre de points va évoluer au fil du jeu.</p>
+        </div>
+      </div>
+
+      <p>Comment faire en sorte que notre fonction affiche le nombre de points?</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint11A" role="button" aria-expanded="false" aria-controls="collapseHint11A">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint11A">
+        <div class="card card-body">
+          <p>Tu pourrais utiliser la fonction <code class="language-js">text()</code> ainsi:</p>
+          <pre>
+            <code class="language-js">
+              text("points: 7", 10, 30);
+            </code>
+          </pre>
+
+          <p>Le problème, c'est que ton jeu afficherait toujours 7 points. Pas très utile. Par contre, si tu utilises une variable dans la fonction text, alors ça devient intéressant:</p>
+
+          <pre>
+            <code class="language-js">
+              let points = 7;
+
+              // les autres parties de ton code...
+
+              text("points: " + points, 10, 30);
+            </code>
+          </pre>
+
+          <p><code class="language-js">"points: " + points</code> ça veut dire qu'on colle le mot "points: " avec la <strong>valeur de la variable</strong> <code class="language-js">points</code>. Si dans la valeur vaut 5, alors on verra affiché "points: 5". Si la valeur vaut 34, alors on verra affiché "points: 34"</p>
+
+        </div>
+      </div>
+
+
+      <h3>C. Augmenter le nombre de points</h3>
+
+      <p>Pose-toi toujours la même question! Où dois-tu changer la valeur de la variable <code class="language-js">points</code>?</p>
+
+      <ol>
+        <li>Au tout début de ton programme, avant les fonctions <code class="language-js">setup()</code> et <code class="language-js">draw()</code>?</li>
+        <li>Dans la fonction <code class="language-js">setup()</code>?</li>
+        <li>Dans la fonction <code class="language-js">draw()</code>?</li>
+        <li>Dans la fonction <code class="language-js">mouseClicked()</code>?</li>
+      </ol>
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer11D" role="button" aria-expanded="false" aria-controls="collapseAnswer11D">Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer11D">
+        <div class="card card-body">
+          <p>Cette fois-ci, c'est dans la fonction <code class="language-js">mouseClicked()</code>! Les points n'augmentent que lorsque le joueur clique sur le ballon!</p>
+
+          <p>Ta fonction aura l'air de quelque chose comme ceci:</p>
+
+          <pre>
+            <code class="language-js">
+              function mouseClicked() {
+              let d = dist(positionX, positionY, mouseX, mouseY);
+
+              if (d < circleDiameter) {
+              // changer la couleur du ballon
+              balloonColor = random(colors);
+              fill(balloonColor);
+
+              // repositionner le ballon en bas de l'écran
+              positionX = random(0, canvasWidth);
+              positionY = height +circleDiameter/2;
+
+              // augmenter les points
+              points ????
+            }
+          }
+        </code>
+      </pre>
+
+      <p>N'oublie pas de remplacer les <strong>????</strong> par le code approprié. Petit rappel, pour faire <em>diminuer</em> de 1 une variable, on peut écrire ceci: <code class="language-js">points--</code> ou <code class="language-js">points -= 1</code>.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+</div><!--  end card -->
+<div class="card">
+  <div class="card-header" id="headingTwelve">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+        Etape 12 - Vite, vite, vite!🏃🏽‍♀️
+        <span class="badge badge-warning">Difficile 🏆</span>
+      </button>
+    </h2>
+  </div>
+  <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
+    <div class="card-body">
+      <p>Ajoutons une limite de temps ⏲️ pour mettre un peu de pression sur nos joueurs! Le temps, c'est quelque chose qui existe dans presque tous les jeux. </p>
+
+      <p>En p5.js, il n'y a pas vraiment de fonction qui dise à l'ordinateur "Arrête-toi au bout de 15 secondes". On va néanmoins essayer de bidouiller une sorte de compte à rebours (<em>timer</em> en anglais).</p>
+
+      <p>Première étape: déclarer une variable (eh oui, encore une autre!) qui stockera le nombre de secondes du jeu:</p>
+      <pre>
+        <code class="language-js">
+          let timerValue = 10; // le jeu va durer 10 secondes
+        </code>
+      </pre>
+
+      <p>Ensuite, on va utiliser une fonction JavaScript pure (pas une fonction de la librairie p5.js) qui va commencer le compte à rebours: <code class="language-js">setInterval()</code></p>
+
+      <p>La fonction <code class="language-js">setInteval()</code> est un peu comme la fonction <code class="language-js">draw()</code> de la librairie p5.js dans la mesure où elle s'exécute en boucle.</p>
+
+      <p>Examinons ce code:</p>
+
+      <pre>
+        <code class="language-js">
+          setInterval(rainbow, 2000);
+
+          function rainbow() {
+          // du beau code qui dessine un arc-en-ciel
+        }
+      </code>
+    </pre>
+
+    <p>Comme tu peux le constater, la fonction <code class="language-js">setInterval</code> prend deux <strong>arguments</strong>: <code class="language-js">rainbow</code> et <code class="language-js">2000</code>. Le premier argument, qu'on appelle en langage technique <strong>callback</strong>, c'est le code à exécuter après chaque interval (ici, la fonction <code class="language-js">rainbow</code>). Le second argument, c'est la longueur de l'intervale en <strong>millisecondes</strong>. 2000 millisecondes, c'est l'équivalent de... 2 secondes!</p>
+
+    <p>En d'autres mots, l'ordinateur va exécuter la fonction <code class="language-js">rainbow</code> chaque 2 secondes.</p>
+
+    <p>Dans la fonction <code class="language-js">setup()</code> de ton code, tu peux donc ajouter la ligne suivante:</p>
+
+    <pre>
+      <code class="language-js">
+        function setup() {
+        createCanvas(400, 400);
+        //...
+
+        setInterval(subtractSecond, ????);
+      }
+    </code>
+  </pre>
+
+  <p>À toi de remplacer les <strong>????</strong> pour que la fonction <code class="language-js">subtractSecond</code> se déclenche toutes les secondes (pense à la valeur d'une seconde en millisecondes).</p>
+
+  <p>Étape suivante: coder la fonction <code class="language-js">subtractSecond()</code> qui veut dire en français "retranche une seconde". À la toute toute fin de ton programme (après la fonction <code class="language-js">mouseClicked()</code>, tu peux coder la fonction ainsi:</p>
+
+  <pre>
+    <code class="language-js">
+      function subtractSecond() {
+      // code pour soustraire une seconde
+    }
+  </code>
+</pre>
+
+<p>Peux-tu trouver le code de la fonction? Pense à comment tu as changé la valeur de la variable <code class="language-js">positionY</code> ou encore comment tu as additionné les points de ta variable <code class="language-js">points</code>.</p>
+
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint12A" role="button" aria-expanded="false" aria-controls="collapseHint12A">Indice</a>
+</p>
+<div class="collapse mb-3" id="collapseHint12A">
+  <div class="card card-body">
+    <p>Utilise <code class="language-js">console.log(timerValue);</code> pour t'assurer que le temps restant diminue. Comment faire pour que le temps restant n'aille pas dans le négatif? Peut-être qu'une <strong>condition</strong> pourrait aider...</p>
+  </div>
+</div>
+
+<p>Dernière étape: faire en sorte que le jeu s'arrête lorsqu'il ne reste plus de temps! Pour se faire, tu dois retourner dans la fonction <code class="language-js">draw()</code> et utiliser la fonction <code class="language-js">noLoop()</code> qui va avoir pour effet de cesser la répétition en boucle de la fonction <code class="language-js">draw()</code>:</p>
+<pre>
+  <code class="language-js">
+    function draw() {
+    // code pour dessiner le ballon
+    // code pour que le ballon s'envole
+    // code pour afficher les points
+
+    if (????) {
+    noLoop(); // le jeu s'arrête
+  }
+}
+</code>
+</pre>
+
+<p>Dernier conseil: après avoir utilisé la fonction <code class="language-js">noLoop()</code>, tu peux encore montrer sur ton canevas le score final avec un message. Par exemple: "Tu as récolté 320 points, bravo!" ou "Tu n'as eu que 20 points, meilleure chance la prochaine fois".</p>
+
+</div>
+</div>
+</div>  <!-- end of card -->
+
+<div class="card">
+  <div class="card-header" id="headingThirteen">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+        Etape 13 - Pour peaufiner le jeu
+      </button>
+    </h2>
+  </div>
+  <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordionExample">
+    <div class="card-body">
+      <p>Bravo de t'être rendu-e à la fin de ce défi!!!🏅</p>
+      <p>Voici quelques idées pour rendre ton jeu encore plus sympathique:</p>
+
+      <ul>
+        <li>Éviter que le ballon soit caché par les côtés latéraux du canevas, comme ceci:</li>
+        <img src="images/balloon-border.png" alt="" class="img-shadow mb-3">
+        <li>Avoir plus de 10 couleurs différentes pour le ballon.</li>
+        <li>Faire en sorte que le ballon s'envole de plus en plus vite.</li>
+      </ul>
+    </div>
+  </div>
+</div>  <!-- end of card -->
+
+</div>
+</div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://techieslab.be/"><i class="fas fa-globe"></i></i></a>
+    <a href="https://www.facebook.com/TechiesLabBrussels"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/TechiesLab"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    <a href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/3298561-faites-votre-mise-en-page-avec-flexbox#/id/r-3298711" rel="noopener noreferrer" target="_blank" class="alert-link copyright">
+      <i class="far fa-copyright"></i>
+      2020 Techies Lab ASBL. All rights reserved.
+    </a>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="javascript/prism.js"></script>
+<script type="text/javascript" src="javascript/app.js"></script>
+</body>
+</html>

@@ -490,7 +490,7 @@
       <img class="img-shadow mb-3" src="images/fixed_letter.gif" alt="">
       <p>Non seulement la lettre ne bouge pas, mais en plus elle est toute petite! Il nous faut une loupe pour la voir! 🔎 </p>
 
-      <h2>A. Agrandir et changer la couleur de la bulle</h2>
+      <h2>A. Agrandir et changer la couleur de la lettre</h2>
 
       <p>En consultant la <a href="https://p5js.org/reference/" target="_blank">documentation</a>, peux-tu trouver une fonction qui te permette de choisir la <strong>taille du texte</strong> (en anglais, le mot <em>taille</em> se dit <em>size</em>)?</p>
 
@@ -515,15 +515,95 @@
       <p>Tu peux également mettre ta lettre en <strong>gras</strong> grâce à la fonction <code class="language-js">textStyle(BOLD);</code></p>
       <img class="img-shadow mb-3" src="images/letter_bold.png" alt="">
 
-      <div class="alert alert-warning" role="alert">
-        <p>
-          <i class="fas fa-exclamation-circle"></i>
-          Assure-toi d'avoir mis les fonctions <code class="language-js">textSize()</code> et <code class="language-js">textStyle()</code> <em>avant</em> la fonction <code class="language-js">text()</code>! C'est une bonne habitude à prendre, surtout si dans la suite de ton code, tu souhaites changer de taille ou de style de police.
-        </p>
+      <p>Finalement, change la couleur de la lettre grâce à la fonction...</p>
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer8b" role="button" aria-expanded="false" aria-controls="collapseAnswer8b">Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer8b">
+        <div class="card card-body">
+          <p><code class="language-js">fill()</code></p>
+          <p>Pour que la couleur de ta lettre soit noire, tu peux coder ceci: <code class="language-js">fill("black");</code></p>
+          <div class="alert alert-warning" role="alert">
+            <p>
+              <i class="fas fa-exclamation-circle"></i>
+              Assure-toi d'avoir mis les fonctions <code class="language-js">textSize()</code>, <code class="language-js">textStyle()</code> et <code class="language-js">fill()</code> <em>avant</em> la fonction <code class="language-js">text()</code>! C'est une bonne habitude à prendre, surtout si dans la suite de ton code, tu utilises la fonction <code class="language-js">fill()</code> pour remplir une autre forme d'une autre couleur.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img class="img-shadow mb-3" src="images/black_letter.png" alt="">
+
+
+      <h2>B. Positionner la lettre au centre de la bulle</h2>
+
+      <p>Pour réussir cette étape, il vaut mieux que notre bulle soit immobile, dans sa position de départ. Quelle ligne de ton code dois-tu commenter pour immobiliser ta bulle?</p>
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer8c" role="button" aria-expanded="false" aria-controls="collapseAnswer8c">Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer8c">
+        <div class="card card-body">
+          <pre>
+            <code class="language-js">
+            // positionX--;
+            </code>
+          </pre>
+        </div>
       </div>
 
-      <h2>B. Positionner la bulle au bon endroit</h2>
+      <p>Maintenant, il te sera plus aisé de positionner ta lettre dans la bulle. En changeant les paramètres <code class="language-js">x</code> et <code class="language-js">y</code> de ta fonction <code class="language-js">text()</code>, tu devrais y arriver!</p>
+      <img class="img-shadow mb-3 flexgif" src="images/letter_far.png" alt="">
+      <img class="img-shadow mb-3 flexgif" src="images/letter_close.png" alt="">
 
+      <p>À ton avis, pourquoi ai-je choisi les valeurs <code class="language-js">320</code> et <code class="language-js">130</code>?</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint8a" role="button" aria-expanded="false" aria-controls="collapseHint8a">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint8a">
+        <div class="card card-body">
+          <p>Parce que ce sont les coordonnées de départ de mon cercle!</p>
+        </div>
+      </div>
+
+      <h2>C. Faire bouger la lettre avec la bulle</h2>
+      <p>Maintenant que la lettre est dans la bulle, comment la faire bouger avec la bulle?</p>
+
+      <p>Observe bien ma fonction <code class="language-js">circle()</code>: </p>
+      <pre>
+        <code class="language-js">
+        circle(positionX, 130, 100);
+        </code>
+      </pre>
+      <p>Remarque que dans mon code, le premier argument est la variable <code class="language-js">positionX</code>. L'ordinateur va remplacer la variable avec la valeur qui s'y trouve. Si on a stocké la valeur <code class="language-js">320</code>, l'ordinateur va exécuter l'instruction <code class="language-js">circle(320, 130, 100);</code></p>
+      <p>Si on a stocké dans la variable <code class="language-js">positionX</code> la valeur <code class="language-js">69</code>, l'ordinateur va exécuter l'instruction <code class="language-js">circle(69, 130, 100);</code> et ainsi de suite...</p>
+
+      <p>En combinaison avec l'instruction <code class="language-js">positionX--;</code> tu obtiens un cercle qui se déplace vers la gauche.</p>
+
+      <p>Pour ta lettre, tu peux aussi faire la même chose! Au lieu d'écrire <code class="language-js">text("S", 320, 130);</code> tu peux remplacer le <code class="language-js">320</code> par une variable: <code class="language-js">text("S", ????, 130);</code>. Quelle est cette variable?</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint8b" role="button" aria-expanded="false" aria-controls="collapseHint8b">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint8b">
+        <div class="card card-body">
+          <p>Tu n'as pas besoin de créer une nouvelle variable! Tu peux utiliser une variable qui te donne la position sur l'axe des <code class="language-js">x</code>...</p>
+        </div>
+      </div>
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer8d" role="button" aria-expanded="false" aria-controls="collapseAnswer8d">Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer8d">
+        <div class="card card-body">
+          <pre>
+            <code class="language-js">
+            text("S", positionX, 130);
+            </code>
+          </pre>
+        </div>
+      </div>
 
     </div>
   </div>

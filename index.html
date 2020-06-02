@@ -288,15 +288,15 @@
               let img;
 
               function preload() {
-              img = loadImage('assets/XXXX');
-            }
+                img = loadImage('assets/XXXX');
+              }
 
-            function setup() {
-            createCanvas(400, 400);
-            image(img, 0, 0);
-          }
-        </code>
-      </pre>
+              function setup() {
+                createCanvas(400, 400);
+                image(img, 0, 0);
+              }
+            </code>
+          </pre>
 
       <div class="alert alert-warning" role="alert">
         <p><i class="fa fa-exclamation-circle"></i>  Remplace les XXXX par le nom du fichier de ton image. Respecte la casse (les majuscules et les minuscules!)</p>
@@ -368,7 +368,7 @@
       <p>Tu peux utiliser la fonction <code class="language-js">fill()</code> pour donner une couleur à ta bulle. Pour donner un aspect plus "véridique" à ta bulle, essaye de lui donner une couleur légèrement transparente.</p>
 
       <img class="img-shadow m-3" src="images/transparent-color.png" alt="">
-      <p>Pour une couleur transparente, il faut d'abord trouver le code de la couleur en RGB (<span style="color: red"><strong>RED</strong></span>, <span style="color: green"><strong>GREEN</strong></span>, <span style="color: blue"><strong>BLUE</strong></span>:</p>
+      <p>Pour une couleur transparente, il faut d'abord trouver le code de la couleur en RGB (<span style="color: red"><strong>RED</strong></span>, <span style="color: green"><strong>GREEN</strong></span>, <span style="color: blue"><strong>BLUE</strong></span>):</p>
 
       <pre>
         <code class="language-js">
@@ -377,7 +377,7 @@
         </code>
       </pre>
 
-      <p>Pour ajouter de la transparence, on utilise le code RGBA, avec un quatrième nombre en 0 et 1:</p>
+      <p>Pour ajouter de la transparence, on utilise le code RGBA, c'est à dire le code RGB avec en plus un quatrième nombre entre 0 et 1. Ce quatrième nombre détermine l'opacité de notre couleur.</p>
 
       <pre>
         <code class="language-js">
@@ -396,6 +396,14 @@
         </code>
       </pre>
 
+      <div class="alert alert-warning" role="alert">
+        <p>
+          <i class="fas fa-exclamation-circle"></i>
+            N'oublie pas les guillements <code class="language-js">' '</code> autour de ton code <code class="language-js">'rgba(0, 255, 0.6)'</code> sans quoi tu aura un message d'erreur!
+        </p>
+        <p>Bon à savoir: ici, tu peux utiliser les guillements simples <code class="language-js">' '</code> ou doubles <code class="language-js">" "</code>.</p>
+      </div>
+
     </div>
   </div>
 </div>
@@ -413,6 +421,38 @@
       <p>En t'inspirant de l'étape 8 du défi <a href="https://techieslab.github.io/balloon_instructions/">Péter ta balloune</a>, peux-tu faire bouger la bulle vers la gauche ou vers la droite?</p>
 
       <p>Tu auras besoin d'une variable pour stocker la position sur l'axe des x de ta bulle. Tu devras également changer la valeur de la position en x à chaque fois que la fonction <code class="language-js">draw()</code> est appelée (c'est à dire au moins 30 fois par secondes).</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint7a" role="button" aria-expanded="false" aria-controls="collapseHint7a">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint7a">
+        <div class="card card-body">
+          <p>Ton code aura l'air de ceci:</p>
+          <pre>
+            <code class="language-js">
+            let positionX = 200;
+
+            function setup() {
+              // ton code merveilleux
+            }
+
+            function draw() {
+              // ton code merveilleux
+
+              // pour dessiner le cercle de la bulle:
+              circle(positionX, 130, 100);
+
+              // pour faire bouger la bulle (remplace les ????)
+              positionX ????;
+            }
+            </code>
+          </pre>
+
+        </div>
+      </div>
+
+      <img class="img-shadow" src="images/bubble_moving_noletter.gif" alt="">
+
     </div>
   </div>
 </div>
@@ -420,14 +460,70 @@
   <div class="card-header" id="headingEight">
     <h2 class="mb-0">
       <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-        Etape 8 - Lettre dans la bulle
+        Etape 8 - Lettre dans la bulle 🔠
       </button>
     </h2>
   </div>
   <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
     <div class="card-body">
       <p>Comment afficher une lettre dans la bulle?</p>
-      <p>Tu auras besoin de la fonction <code class="language-js">text()</code> et de ta variable dans laquelle tu as stocké la position de la bulle sur l'axe des X.</p>
+      <p>Tu auras besoin de la fonction <code class="language-js">text()</code>.</p>
+
+      <p>Si j'ajoute ceci à la foncton <code class="language-js">draw()</code>, je vais avoir une lettre <strong>statique</strong> (qui ne bouge pas):</p>
+
+      <pre>
+        <code class="language-js">
+        function draw() {
+          // le reste de ton merveilleux code
+
+          //pour dessiner la bulle
+          circle(positionX, 130, 100);
+
+          // pour faire bouger la bulle
+          positionX--;
+
+          // pour afficher une lettre
+          text("S", 200, 200);
+        }
+        </code>
+      </pre>
+      <img class="img-shadow mb-3" src="images/fixed_letter.gif" alt="">
+      <p>Non seulement la lettre ne bouge pas, mais en plus elle est toute petite! Il nous faut une loupe pour la voir! 🔎 </p>
+
+      <h2>A. Agrandir et changer la couleur de la bulle</h2>
+
+      <p>En consultant la <a href="https://p5js.org/reference/" target="_blank">documentation</a>, peux-tu trouver une fonction qui te permette de choisir la <strong>taille du texte</strong> (en anglais, le mot <em>taille</em> se dit <em>size</em>)?</p>
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer8a" role="button" aria-expanded="false" aria-controls="collapseAnswer8a">Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer8a">
+        <div class="card card-body">
+          <p>C'est la fonction <code class="language-js">textSize()</code>. Le code suivant aggrandira le texte à la taille 50, par exemple:</p>
+
+          <pre>
+            <code class="language-js">
+            textSize(50);
+            text("S", 300, 50);
+            </code>
+          </pre>
+
+        </div>
+      </div>
+      <img class="img-shadow mb-3" src="images/size_50.png" alt="">
+
+      <p>Tu peux également mettre ta lettre en <strong>gras</strong> grâce à la fonction <code class="language-js">textStyle(BOLD);</code></p>
+      <img class="img-shadow mb-3" src="images/letter_bold.png" alt="">
+
+      <div class="alert alert-warning" role="alert">
+        <p>
+          <i class="fas fa-exclamation-circle"></i>
+          Assure-toi d'avoir mis les fonctions <code class="language-js">textSize()</code> et <code class="language-js">textStyle()</code> <em>avant</em> la fonction <code class="language-js">text()</code>! C'est une bonne habitude à prendre, surtout si dans la suite de ton code, tu souhaites changer de taille ou de style de police.
+        </p>
+      </div>
+
+      <h2>B. Positionner la bulle au bon endroit</h2>
+
 
     </div>
   </div>

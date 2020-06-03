@@ -659,6 +659,157 @@
           <p>Remplace les XXXX, YYYY et ZZZZ par les valeurs appropriées pour créer la couleur <span style="color: red"><strong>rouge</strong></span>.</p>
         </div>
       </div>
+      <p>Comment faire bouger cette bulle? On pourrait utiliser la variable <code class="language-js">positionX</code>, comme pour la première bulle:</p>
+
+      <pre>
+        <code class="language-js">
+        // bulle rouge
+        bubbleColor = color('rgba(255, 0, 0, 0.6)');
+        fill(bubbleColor);
+        circle(positionX, 130, 100);
+        </code>
+      </pre>
+
+      <p>Le problème, c'est que les deux bulles ont la même position en sur l'axe horizontal et vertical... en conséquence, on les voit superposées:</p>
+      <img class="img-shadow mb-3" src="images/superimposed_bubbles.gif" alt="">
+
+      <p>Conclusion: les positions sur l'axe horizontal (<code class="language-js">x</code>) doivent être <strong>indépendantes</strong>. Ceci veut dire qu'on doit avoir deux variables différentes.</p>
+
+      <p>À ton avis, comment créer une variable pour notre deuxième bulle?</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9b" role="button" aria-expanded="false" aria-controls="collapseHint9b">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint9b">
+        <div class="card card-body">
+          <pre>
+            <code class="language-js">
+            let positionX = 320;
+            let positionRedX = 320;
+
+            function setup() {
+              // le code de la fonction setup()
+            }
+
+            function draw() {
+              // le code de la première bulle
+
+              // code de la deuxième bulle (rouge)
+              bubbleColor = color('rgba(255, 0, 0, 0.6)');
+              fill(bubbleColor);
+              circle(positionRedX, 130, 100);
+
+              // faire bouger la bulle rouge
+              ????
+            }
+            </code>
+          </pre>
+          <p>Arrives-tu à deviner comment faire bouger la deuxième bulle?</p>
+        </div>
+      </div>
+
+      <p>
+        <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer9a" role="button" aria-expanded="false" aria-controls="collapseAnswer9a">Réponse</a>
+      </p>
+      <div class="collapse mb-3" id="collapseAnswer9a">
+        <div class="card card-body">
+          <p>Pour faire bouger ta deuxième bulle, tu peux ajouter la ligne suivante:</p>
+          <pre>
+            <code class="language-js">
+            positionRedX--;
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <p>On a deux variables, mais les bulles sont encore superposées! Et si la bulle rouge avançait deux fois plus vite que la première bulle?</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9c" role="button" aria-expanded="false" aria-controls="collapseHint9c">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint9c">
+        <div class="card card-body">
+          <p>Essaie avec ceci:</p>
+          <pre>
+            <code class="language-js">
+            positionRedX -= 2;
+            </code>
+          </pre>
+        </div>
+      </div>
+      <img class="img-shadow mb-3" src="images/red_twice_fast.gif" alt="">
+
+      <p>Bon, ça ne règle pas notre problème, mais au moins, les deux bulles sont indépendantes!</p>
+
+      <p>Pour que la bulle rouge parte <em>après</em> la première bulle, il faut utiliser une condition. Si la première bulle a déjà fait assez de chemin, alors on dessine la bulle rouge et on la fait bouger. Comment traduire cela en code?</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9d" role="button" aria-expanded="false" aria-controls="collapseHint9d">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint9d">
+        <div class="card card-body">
+          <pre>
+            <code class="language-js">
+            if (positionX < ???) {
+            // code de la deuxième bulle (rouge)
+              bubbleColor = color('rgba(255, 0, 0, 0.6)');
+              fill(bubbleColor);
+              circle(positionRedX, 130, 100);
+
+              // faire bouger la bulle rouge
+              positionRedX--;
+            }
+            </code>
+          </pre>
+        </div>
+      </div>
+      <img class="img-shadow mb-3" src="images/first_red.gif" alt="">
+
+      <p>Il ne te reste plus qu'à ajouter une lettre dans ta deuxième bulle et le tour est joué!</p>
+    </div>
+  </div>
+</div>  <!-- end of card -->
+
+<div class="card">
+  <div class="card-header" id="headingTen">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+        Etape 10 - Plusieurs bulles!
+      </button>
+    </h2>
+  </div>
+  <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+    <div class="card-body">
+     <p>Tu peux maintenant créer autant de bulles que tu veux!</p>
+     <p>Pour faire en sorte que les bulles ne se superposent pas, tu devras créer une variable pour stocker la position en <code class="language-js">x</code> de chacune des bulles.</p>
+
+     <p>Tu auras également besoin de plusieurs conditions!</p>
+    </div>
+  </div>
+</div>  <!-- end of card -->
+
+<div class="card">
+  <div class="card-header" id="headingEleven">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+        Etape 11 - Convertis ton animation en GIF
+      </button>
+    </h2>
+  </div>
+  <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
+    <div class="card-body">
+      <p>Satisfait-e de tes bulles? Transforme ton animation en GIF!</p>
+
+      <p>Tu peux installer un logiciel comme <a href="https://www.cockos.com/licecap/">licecap</a> sur ton ordinateur pour enregistrer ton écran et sauvegarder le tout sous le format <strong>GIF</strong>.</p>
+
+      <div class="alert alert-warning" role="alert">
+        <p>
+          <i class="fas fa-exclamation-circle"></i>
+          Si l'ordinateur ne t'appartient pas, demande la permission au propriétaire (tes parents, peut-être?) avant d'installer un logiciel! Il se peut même qu'il faille des droits d'administrateur pour installer le logiciel sur l'ordinateur.
+        </p>
+      </div>
+
+      <p>Partage ton GIF!</p>
 
     </div>
   </div>

@@ -753,8 +753,10 @@
             </code>
           </pre>
         </div>
-      </div><!--  end card -->
-      
+      </div>
+    </div>
+  </div><!--  end card -->
+
       <div class="card">
         <div class="card-header" id="headingNine">
           <h2 class="mb-0">
@@ -766,17 +768,13 @@
         </div>
         <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
           <div class="card-body">
+            <p>Let's add a second bubble, tough with a different colour and letter.</p>
+      
+            <p>In your <code class="language-js">draw()</code>function, you can start with adding an immobile bubble.</p>
+      
             <p>
-              Let's add a second bubble, with a different colour and a different letter.
-            </p>
-
-            <p>
-              In your <code class="language-js">draw()</code> function, you can start by adding an immobile bubble.
-            </p>
-
-            <p>
-              <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9a" role="button"
-                aria-expanded="false" aria-controls="collapseHint9a">Hint</a>
+              <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9a" role="button" aria-expanded="false"
+                aria-controls="collapseHint9a">Hitn</a>
             </p>
             <div class="collapse mb-3" id="collapseHint9a">
               <div class="card card-body">
@@ -784,23 +782,23 @@
                   <code class="language-js">
                   function draw() {
                     image(img, 0, 0);
-
+      
                     noStroke();
-
+      
                     // white bubble
                     bubbleColor = color('rgba(255, 255, 255, 0.6)');
                     fill(bubbleColor);
                     circle(positionX, 130, 100);
-
-                    // letter inside the white bubble
+      
+                    // letter of the white bubble
                     textStyle(BOLD);
                     textSize(50);
                     fill("black");
                     text("S", positionX, 130);
-
-                    // make the white bubble and its letter move left
+      
+                    // make the white bouble move with it's letter
                     positionX --;
-
+      
                     // red bubble
                     bubbleColor = color('rgba(XXXX, YYYY, ZZZZ, 0.6)');
                     fill(bubbleColor);
@@ -808,46 +806,231 @@
                   }
                   </code>
                 </pre>
-
-                <p>Replace the XXXX, YYYY and ZZZZ with the appropriate value to create the coloru <span
+      
+                <p>Replace the XXXX, YYYY and ZZZZ with the appropriate values to create the colour <span
                     style="color: red"><strong>red</strong></span>.
+                  </p>
+              </div>
+            </div>
+            <p>
+              How to make the bubble move? We could use the <code class="language-js">positionX</code> variable,
+              just like we did for the first bubble:
+            </p>
+      
+            <pre>
+              <code class="language-js">
+              // red bubble
+              bubbleColor = color('rgba(255, 0, 0, 0.6)');
+              fill(bubbleColor);
+              circle(positionX, 130, 100);
+              </code>
+            </pre>
+      
+            <p>
+              The problem, is that both our bubbles have the same position on the horizontal and vertical axes...
+              as a result, we see them displayed one on top of the other:
+            </p>
+
+            <img class="img-shadow mb-3" src="images/superimposed_bubbles.gif" alt="">
+      
+            <p>
+              Conclusion: the positions on the horizontal axis (<code class="language-js">x</code>) must be
+              <strong>independant</strong> from eachother. This means we need two different variables.
+            </p>
+      
+            <p>
+              In your opinion, how shall we create a second variable for our second bubble?
+            </p>
+      
+            <p>
+              <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9b" role="button" aria-expanded="false"
+                aria-controls="collapseHint9b">Hitn</a>
+            </p>
+            <div class="collapse mb-3" id="collapseHint9b">
+              <div class="card card-body">
+                <pre>
+                  <code class="language-js">
+                  let positionX = 320;
+                  let positionRedX = 320;
+      
+                  function setup() {
+                    // the code of the setup() function
+                  }
+      
+                  function draw() {
+                    // first bubble's code
+      
+                    // second bubble's code (red)
+                    bubbleColor = color('rgba(255, 0, 0, 0.6)');
+                    fill(bubbleColor);
+                    circle(positionRedX, 130, 100);
+      
+                    // make the red bubble move
+                    ????
+                  }
+                  </code>
+                </pre>
+                <p>
+                  Can you perhaps guess how we can make the second bubble move?
                 </p>
               </div>
             </div>
-
+      
+            <p>
+              <a class="btn btn-danger" data-toggle="collapse" href="#collapseAnswer9a" role="button" aria-expanded="false"
+                aria-controls="collapseAnswer9a">Answer</a>
+            </p>
+            <div class="collapse mb-3" id="collapseAnswer9a">
+              <div class="card card-body">
+                <p>To make the second bubble move, you can add the following line:</p>
+                <pre>
+                  <code class="language-js">
+                  positionRedX--;
+                  </code>
+                </pre>
+              </div>
+            </div>
+      
+            <p>
+              We have two variables, but the bubbles are stil on top of each other! And what if the red bubble moved twice
+              as fast as the first one?
+            </p>
+      
+            <p>
+              <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9c" role="button" aria-expanded="false"
+                aria-controls="collapseHint9c">Hint</a>
+            </p>
+            <div class="collapse mb-3" id="collapseHint9c">
+              <div class="card card-body">
+                <p>Try using this:</p>
+                <pre>
+                  <code class="language-js">
+                  positionRedX -= 2;
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <img class="img-shadow mb-3" src="images/red_twice_fast.gif" alt="">
+      
+            <p>
+              Well, that does not fix our problem, but at least, both bubbles are independant!
+            </p>
+      
+            <p>
+              In order for the red bubble to move <em>after</em> the first bubble, we have to use a condition. If the first
+              bubble has already moved some distance, then we can draw the red bubble and make it move. How to translate this
+              into code?
+            </p>
+      
+            <p>
+              <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9d" role="button" aria-expanded="false"
+                aria-controls="collapseHint9d">Hint</a>
+            </p>
+            <div class="collapse mb-3" id="collapseHint9d">
+              <div class="card card-body">
+                <pre>
+                  <code class="language-js">
+                  if (positionX < ???) {
+                  // second bubble's code (rouge)
+                    bubbleColor = color('rgba(255, 0, 0, 0.6)');
+                    fill(bubbleColor);
+                    circle(positionRedX, 130, 100);
+      
+                    // make the red bubble move
+                    positionRedX--;
+                  }
+                  </code>
+                </pre>
+              </div>
+            </div>
+            <img class="img-shadow mb-3" src="images/first_red.gif" alt="">
+      
+            <p>All that remains for you to do is add a letter to the second bubble and the jig is up!</p>
           </div>
         </div>
       </div> <!-- end of card -->
-
-    </div>
-  </div>
-  </div>
-
-  <div class="footer">
-    <div class="footer-links">
-      <a href="https://techieslab.be/"><i class="fas fa-globe"></i></i></a>
-      <a href="https://www.facebook.com/TechiesLabBrussels"><i class="fab fa-facebook"></i></a>
-      <a href="https://twitter.com/TechiesLab"><i class="fab fa-twitter"></i></a>
-    </div>
-    <div class="footer-copyright">
-      <a href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/3298561-faites-votre-mise-en-page-avec-flexbox#/id/r-3298711"
-        rel="noopener noreferrer" target="_blank" class="alert-link copyright">
-        <i class="far fa-copyright"></i>
-        2020 Techies Lab ASBL. All rights reserved.
-      </a>
-    </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-  <script src="javascript/prism.js"></script>
-  <script type="text/javascript" src="javascript/app.js"></script>
-</body>
-
-</html>
+      
+      <div class="card">
+        <div class="card-header" id="headingTen">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseTen"
+              aria-expanded="false" aria-controls="collapseTen">
+              Step 10 - Multiple Bubbles!
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>You can now create as many bubbles as you want!</p>
+            <p>
+              To be sure that the bubbles do not overlap eachother, you will have to create a variable to store the 
+              <code class="language-js">x</code> position of each one of the bubbles.</p>
+      
+            <p>You will also need multiple conditions!</p>
+          </div>
+        </div>
+      </div> <!-- end of card -->
+      
+      <div class="card">
+        <div class="card-header" id="headingEleven">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseEleven"
+              aria-expanded="false" aria-controls="collapseEleven">
+              Step 11 - Convert your animation into a GIF
+            </button>
+          </h2>
+        </div>
+        <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
+          <div class="card-body">
+            <p>
+              Are you happy with your bubbles? Turn your animation into a GIF!
+            </p>
+      
+            <p>You can install a software like <a href="https://www.cockos.com/licecap/">licecap</a> on your computer to record
+              your screen and save it in the <strong>GIF</strong> format.</p>
+      
+            <div class="alert alert-warning" role="alert">
+              <p>
+                <i class="fas fa-exclamation-circle"></i>
+                If you do not own your computer, ask the permission of the owner (parents, perhaps?) before installing software!
+                It could also be the case that you need administrator right to install the program on your computer.
+              </p>
+            </div>
+      
+            <p>Share your GIF!</p>
+      
+          </div>
+        </div>
+      </div> <!-- end of card -->
+      
+      
+      
+      </div>
+      </div>
+      </div>
+      
+      <div class="footer">
+        <div class="footer-links">
+          <a href="https://techieslab.be/"><i class="fas fa-globe"></i></i></a>
+          <a href="https://www.facebook.com/TechiesLabBrussels"><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/TechiesLab"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="footer-copyright">
+          <a href="https://openclassrooms.com/fr/courses/1603881-apprenez-a-creer-votre-site-web-avec-html5-et-css3/3298561-faites-votre-mise-en-page-avec-flexbox#/id/r-3298711"
+            rel="noopener noreferrer" target="_blank" class="alert-link copyright">
+            <i class="far fa-copyright"></i>
+            2020 Techies Lab ASBL. All rights reserved.
+          </a>
+        </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script src="javascript/prism.js"></script>
+      <script type="text/javascript" src="javascript/app.js"></script>
+      </body>
+      
+      </html>

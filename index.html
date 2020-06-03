@@ -608,6 +608,61 @@
     </div>
   </div>
 </div><!--  end card -->
+<div class="card">
+  <div class="card-header" id="headingNine">
+    <h2 class="mb-0">
+      <button class="btn btn-link collapsed task" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+        Etape 9 - Une deuxième bulle!
+      </button>
+    </h2>
+  </div>
+  <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+    <div class="card-body">
+      <p>Ajoutons une deuxième bulle avec une couleur et une lettre différentes.</p>
+
+      <p>Dans ta fonction <code class="language-js">draw()</code>, tu peux commencer par ajouter une bulle immobile.</p>
+
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseHint9a" role="button" aria-expanded="false" aria-controls="collapseHint9a">Indice</a>
+      </p>
+      <div class="collapse mb-3" id="collapseHint9a">
+        <div class="card card-body">
+          <pre>
+            <code class="language-js">
+            function draw() {
+              image(img, 0, 0);
+
+              noStroke();
+
+              // bulle blanche
+              bubbleColor = color('rgba(255, 255, 255, 0.6)');
+              fill(bubbleColor);
+              circle(positionX, 130, 100);
+
+              // lettre de la bulle blanche
+              textStyle(BOLD);
+              textSize(50);
+              fill("black");
+              text("S", positionX, 130);
+
+              // faire bouger la bulle blanche et sa lettre
+              positionX --;
+
+              // bulle rouge
+              bubbleColor = color('rgba(XXXX, YYYY, ZZZZ, 0.6)');
+              fill(bubbleColor);
+              circle(320, 130, 100);
+            }
+            </code>
+          </pre>
+
+          <p>Remplace les XXXX, YYYY et ZZZZ par les valeurs appropriées pour créer la couleur <span style="color: red"><strong>rouge</strong></span>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>  <!-- end of card -->
 
 
 

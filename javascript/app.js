@@ -42,7 +42,7 @@ const animate = () => {
 // ############################################################################
 
 const displayErrorMessage = (taskToDo) => {
-  errorMessage.innerText = ` ⚠️ Tu dois encore completer l'Etape ${taskToDo} !`
+  errorMessage.innerText = ` ⚠️ Tu dois encore completer l'Etape ${taskToDo} !⚠️ You still need to complete Step ${taskToDo} !`
   errorMessage.classList.add('display')
   setTimeout( () => { errorMessage.classList.remove('display') } ,5000 )
 }
